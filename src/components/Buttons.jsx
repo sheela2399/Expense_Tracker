@@ -9,42 +9,52 @@ import AddBudget from "./AddBudget";
 import AddExpense from "./AddExpense";
 
 
-function Buttons({handleBudget}) {
+function Buttons({ handleBudget, handleExpense, setSelectedCategory }) {
+    const [searchValue, setSearchValue] = useState("");
+    const handleSearchChange = (e) => {
+        setSearchValue(e.target.value);
+    }
+
+    const handleFilterClick = (category) => {
+        setSelectedCategory(category);
+    }
     return (
         <>
             <div className="filters">
                 <div className="search">
                     <div className="search-in">
                         <IoSearchOutline className="search-icon" />
-                        <input type="text" placeholder="search"
-                        // value={searchValue} 
+                        <input type="text"
+                            placeholder="search"
+                            value={searchValue}
+                            onChange={handleSearchChange}
                         />
                     </div>
                     <div className="category-buttons">
-                    <button className="category-btn">
-                        <img src={expenses} alt="expenses" className="category-icon"/> All Expenses
-                    </button>
+                        <button className="category-btn" onClick={() => handleFilterClick("All")}>
+                            <img src={expenses} alt="expenses" className="category-icon" /> All Expenses
+                        </button>
 
-                    <button className="category-btn">
-                        <img src={food} alt="food" className="category-icon"/> Food & Drinks
-                    </button>
+                        <button className="category-btn" onClick={() => handleFilterClick("Food")}>
+                            <img src={food} alt="food" className="category-icon" /> Food & Drinks
+                        </button>
 
-                    <button className="category-btn">
-                        <img src={groceries} alt="groceries" className="category-icon"/> Groceries
-                    </button>
+                        <button className="category-btn" onClick={() => handleFilterClick("Groceries")}>
+                            <img src={groceries} alt="groceries" className="category-icon" /> Groceries
+                        </button>
 
-                    <button className="category-btn">
-                        <img src={travel} alt="travel-icon" className="category-icon"/> Travel
-                    </button>
+                        <button className="category-btn" onClick={() => handleFilterClick("Travel")}>
+                            <img src={travel} alt="travel-icon" className="category-icon" /> Travel
+                        </button>
 
-                    <button className="category-btn">
-                        <img src={health} alt="health-icon" className="category-icon"/> Health
-                    </button>
+                        <button className="category-btn" onClick={() => handleFilterClick("Health")}>
+                            <img src={health} alt="health-icon" className="category-icon" /> Health
+                        </button>
                     </div>
 
                     <div className="action-buttons">
-                        <AddBudget handleBudget={handleBudget}/>
-                        <AddExpense />
+                        <AddBudget handleBudget={handleBudget} />
+                        <AddExpense handleExpense={handleExpense} />
                     </div>
                 </div>
             </div>

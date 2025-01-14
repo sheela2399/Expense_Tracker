@@ -12,25 +12,40 @@ import ExpensesTable from './components/ExpensesTable'
 
 function App() {
   const [budget, setBudget] = useState(0);
-  const [Expense, setExpense] = useState([])
+  const [expense, setExpense] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  
 
   const handleBudget = (newBudget) => {
     setBudget(newBudget);
   };
 
   const handleExpenseAmount = (newExpense) => {
-    setExpenseAmount((prevExpenses) => [...prevExpenses, newExpense]);
+    setExpense((prevExpenses) => [...prevExpenses, newExpense]);
   };
 
-  const totalExpense = Expense.reduce(
+  const totalExpense = expense.reduce(
     (acc, curr) => acc + (curr.amount || 0),
     0
   );
 
+  const filteredExpenses = selectedCategory === "All"
+  ? expense
+  : expense.filter((exp) => exp.category === selectedCategory);
+
+  const handleDelete = (index) => {
+    setExpense((prevExpenses) => prevExpenses.filter((_, i) => i !== index));
+    setIsDeleting(false);
+    setDeletingExpenseIndex(null);
+  };
+  
+
+  // const remainingBudget = budget - totalExpense;
+
   return (
     <>
       <div className='Navbar'>
-        <Navbar></Navbar>
+        <Navbar/>
       </div>
       <div className='Budget-main'>
         <BudgetCard name={"Your Budget"} amount={budget} img={pencil}/>
@@ -38,15 +53,16 @@ function App() {
         <BudgetCard name={"Remaining buget"} amount={budget - totalExpense} img={coinstack}/>
       </div >
       <div className='Filter-section'>
-        <Buttons handleBudget={handleBudget}></Buttons>
+        <Buttons handleBudget={handleBudget} handleExpense={handleExpenseAmount}  setSelectedCategory={setSelectedCategory}
+        />
       </div>
       <div className='Graphs-main'>
         <ExpenseChart></ExpenseChart>
         <ExpensesGraph></ExpensesGraph>
       </div>
-      <div>
-        <ExpensesTable expense={expense}
-        ></ExpensesTable>
+      <div className="table-container">
+        <ExpensesTable expense={filteredExpenses}  handleDelete={handleDelete}
+        />
       </div>
     </>
   )

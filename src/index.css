@@ -4,29 +4,29 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
 
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
   font-family: "Arimo", serif;
 }
 
-.heading{
+.heading {
   width: 100%;
   border-radius: 15px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
- margin: 0px 0px 30px 0px;
+  margin: 0px 0px 30px 0px;
   padding: 20px 5px 40px 30px;
   height: 50px;
 }
 
-.greeting{
+.greeting {
   padding: 26px 800px 26px 80px;
   font-size: 44px;
 }
 
 /* BudgetCard part */
-.Budget-main{
+.Budget-main {
   display: flex;
   justify-content: space-between;
   margin: 0px 80px;
@@ -63,7 +63,7 @@
   height: 50px;
   margin-right: 20px;
   border-radius: 10px;
-  background-color:#007bff ;
+  background-color: #007bff;
 }
 
 .card-content {
@@ -72,10 +72,10 @@
 
 .card-content p {
   margin: 10px 0;
-} 
+}
 
 /* Buttons part */
-.filters{
+.filters {
   margin: 30px;
   padding: 20px;
   background: #f9f9f9;
@@ -130,7 +130,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap:15px;
+  gap: 15px;
   height: 50px;
   background-color: #f5f5f5;
   color: black;
@@ -144,7 +144,7 @@
 
 .category-btn:hover {
   background: grey;
-  transition: 0.3 ease-out ;
+  transition: 0.3 ease-out;
 }
 
 .category-icon {
@@ -163,7 +163,7 @@
 
 .action-buttons button {
   padding: 10px 15px;
-  background:  #0056b3 ;
+  background: #0056b3;
   color: #fff;
   border: none;
   border-radius: 30px;
@@ -204,7 +204,7 @@
   align-items: center;
 }
 
-.popup-head{
+.popup-head {
   display: flex;
   justify-content: space-between;
 }
@@ -259,8 +259,57 @@
   color: white;
 }
 
+/* /Expense Table part start */
+/* Table Styling */
+.table-container {
+  margin: 20px auto;
+  width: 90%;
+  max-width: 800px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
 
+.table-container table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
 
+.table-container th,
+.table-container td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
 
+.table-container th {
+  background-color: #f4f4f4;
+}
 
+.table-container tr:hover {
+  background-color: #f9f9f9;
+}
 
+/* Edit/Delete Buttons */
+.action-div{
+display: flex;
+justify-content: center;
+}
+
+.edit-button,
+.delete-button {
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background-color: skyblue;
+  color: black;
+  margin:10px
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

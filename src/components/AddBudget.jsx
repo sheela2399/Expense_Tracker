@@ -19,7 +19,7 @@ function AddBudget({handleBudget}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         handleBudget(budgetAmount)
-        setBudgetAmount(0);
+        setBudgetAmount("");
         closePopup()
     }
 
