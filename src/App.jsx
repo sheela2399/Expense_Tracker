@@ -67,7 +67,7 @@ function App() {
         <ExpensesGraph expensedata={filteredExpenses}></ExpensesGraph>
       </div>
       <div className="table-container">
-        <ExpensesTable expense={filteredExpenses}  handleDelete={handleDelete}
+        <ExpensesTable expense={filteredExpenses} handleDelete={handleDelete} setExpense={setExpense} 
         />
       </div>
     </>

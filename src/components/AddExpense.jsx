@@ -85,7 +85,7 @@ function AddExpense({handleExpense}) {
                                     <option value="Travel">Travel</option>
                                     <option value="Health">Health</option>
                                     <option value="Groceries">Groceries</option>
-                                    <option value="Other">Other</option>
+                                    {/* <option value="Other">Other</option> */}
                                 </select>
                             </label>
                             <label>

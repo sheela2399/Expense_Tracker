@@ -386,4 +386,15 @@ animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in animation */
   }
 }
 
+/* Edit Expense part */
+.popup-edit-buttons{
+  margin: 0 auto;
+}
+
+.popup-edit-buttons button{
+  width: 100px;
+  border-radius: 8px;
+}
+
+
 
