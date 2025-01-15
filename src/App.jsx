@@ -33,6 +33,9 @@ function App() {
   ? expense
   : expense.filter((exp) => exp.category === selectedCategory);
 
+  // console.log("Expenses:", expense);
+  // console.log("Filtered Expenses:", filteredExpenses);
+
   const handleDelete = (index) => {
     setExpense((prevExpenses) => prevExpenses.filter((_, i) => i !== index));
     setIsDeleting(false);
@@ -57,8 +60,11 @@ function App() {
         />
       </div>
       <div className='Graphs-main'>
-        <ExpenseChart></ExpenseChart>
-        <ExpensesGraph></ExpensesGraph>
+      {/* <ExpensesGraph expenseData={filteredExpenses.length > 0 ? filteredExpenses : null} />
+        <ExpenseChart expenseData={filteredExpenses.length > 0 ? filteredExpenses : null} /> */}
+
+        <ExpenseChart expensedata={filteredExpenses}></ExpenseChart>
+        <ExpensesGraph expensedata={filteredExpenses}></ExpensesGraph>
       </div>
       <div className="table-container">
         <ExpensesTable expense={filteredExpenses}  handleDelete={handleDelete}
