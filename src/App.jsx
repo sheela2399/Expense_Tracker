@@ -3,18 +3,18 @@ import './App.css'
 import Navbar from './components/Navbar'
 import Buttons from './components/Buttons'
 import BudgetCard from './components/BudgetCard'
-import pencil from "./assets/pencil.svg"
-import expense from "./assets/expense.svg"
-import coinstack from "./assets/coinstack.svg"
+import pencill from "./assets/pencill.svg"
+import expensegraph from "./assets/expensegraph.svg"
+import coin from "./assets/coin.svg"
 import ExpensesGraph from './components/ExpensesGraph'
 import ExpenseChart from './components/ExpensesChart'
 import ExpensesTable from './components/ExpensesTable'
+import Footer from './components/Footer'
 
 function App() {
   const [budget, setBudget] = useState(0);
   const [expense, setExpense] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  
 
   const handleBudget = (newBudget) => {
     setBudget(newBudget);
@@ -30,8 +30,8 @@ function App() {
   );
 
   const filteredExpenses = selectedCategory === "All"
-  ? expense
-  : expense.filter((exp) => exp.category === selectedCategory);
+    ? expense
+    : expense.filter((exp) => exp.category === selectedCategory);
 
   // console.log("Expenses:", expense);
   // console.log("Filtered Expenses:", filteredExpenses);
@@ -41,34 +41,50 @@ function App() {
     setIsDeleting(false);
     setDeletingExpenseIndex(null);
   };
-  
 
   // const remainingBudget = budget - totalExpense;
 
   return (
     <>
       <div className='Navbar'>
-        <Navbar/>
+        <Navbar />
       </div>
       <div className='Budget-main'>
-        <BudgetCard name={"Your Budget"} amount={budget} img={pencil}/>
-        <BudgetCard name={"Your Expense"} amount={totalExpense} img={expense}/>
-        <BudgetCard name={"Remaining buget"} amount={budget - totalExpense} img={coinstack}/>
+        <BudgetCard name={"Your Budget"} amount={budget} img={pencill} />
+        <BudgetCard name={"Your Expense"} amount={totalExpense} img={expensegraph} />
+        <BudgetCard name={"Remaining buget"} amount={budget - totalExpense} img={coin} />
       </div >
       <div className='Filter-section'>
-        <Buttons handleBudget={handleBudget} handleExpense={handleExpenseAmount}  setSelectedCategory={setSelectedCategory}
+        <Buttons handleBudget={handleBudget} handleExpense={handleExpenseAmount} setSelectedCategory={setSelectedCategory}
         />
       </div>
-      <div className='Graphs-main'>
-      {/* <ExpensesGraph expenseData={filteredExpenses.length > 0 ? filteredExpenses : null} />
-        <ExpenseChart expenseData={filteredExpenses.length > 0 ? filteredExpenses : null} /> */}
 
-        <ExpenseChart expensedata={filteredExpenses}></ExpenseChart>
-        <ExpensesGraph expensedata={filteredExpenses}></ExpensesGraph>
-      </div>
-      <div className="table-container">
-        <ExpensesTable expense={filteredExpenses} handleDelete={handleDelete} setExpense={setExpense} 
-        />
+      {/* Conditional Rendering for Charts, Graphs, and Table */}
+      {expense.length > 0 ? (
+        <>
+          <div className="graphs-container">
+            <div className="graph-item">
+              <ExpenseChart expensedata={filteredExpenses} />
+            </div>
+            <div className="graph-item">
+              <ExpensesGraph expensedata={filteredExpenses} />
+            </div>
+          </div>
+          <div className="table-container">
+            <ExpensesTable
+              expense={filteredExpenses}
+              handleDelete={handleDelete}
+              setExpense={setExpense}
+            />
+          </div>
+        </>
+      ) : (
+        <p className="no-expenses-message">No Expenses !!</p>
+      )}
+
+
+      <div className='footer'>
+        <Footer></Footer>
       </div>
     </>
   )

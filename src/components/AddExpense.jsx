@@ -81,7 +81,7 @@ function AddExpense({handleExpense}) {
                                     required
                                 >
                                     <option value="">Choose a category</option>
-                                    <option value="Food">Food</option>
+                                    <option value="Food">Food and Drinks</option>
                                     <option value="Travel">Travel</option>
                                     <option value="Health">Health</option>
                                     <option value="Groceries">Groceries</option>

@@ -1,30 +1,49 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+import 'chart.js/auto';
 
-function ExpensesGraph({ expenseData }) {
-  if (!expenseData || expenseData.length === 0) {
-    return <div>No Expenses to Display</div>;
-  }
+function ExpensesGraph({ expensedata }) {
+  const categoryExpenses = expensedata.reduce((acc, curr) => {
+    const category = curr.category;
+    const amount = curr.amount;
+    if (acc[category]) {
+      acc[category] += amount;
+    } else {
+      acc[category] = amount;
+    }
+    return acc;
+  }, {});
 
-  const chartData = {
-    labels: expenseData.map(exp => exp.date),
+  const labels = Object.keys(categoryExpenses);
+  const data = Object.values(categoryExpenses);
+
+  const graphData = {
+    labels: labels,
     datasets: [
       {
-        label: 'Expenses',
-        data: expenseData.map(exp => exp.amount),
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        borderColor: 'rgba(75, 192, 192, 1)',
+        label: 'Expense Amount',
+        data: data,
+        backgroundColor: [
+          'rgba(75, 192, 192, 0.6)',
+          'rgba(255, 159, 64, 0.6)',
+          'rgba(255, 205, 86, 0.6)',
+          'rgba(54, 162, 235, 0.6)',
+        ],
+        borderColor: [
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 159, 64, 1)',
+          'rgba(255, 205, 86, 1)',
+          'rgba(54, 162, 235, 1)',
+        ],
         borderWidth: 1,
       },
     ],
   };
 
-  // console.log("Expense Data in Graph:", filteredExpenses);
-
   return (
-    <div className="chart-container">
-      <h2>Expenses Graph</h2>
-      <Bar data={chartData} />
+    <div>
+      <h3>Expenses graph</h3>
+      <Bar data={graphData} />
     </div>
   );
 }
