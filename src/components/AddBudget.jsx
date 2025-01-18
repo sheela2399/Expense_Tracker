@@ -39,7 +39,7 @@ function AddBudget({handleBudget}) {
                         <form >
                             <label>
                                 Amount:
-                                <input type="number" name="amount" placeholder="Enter Amount" onChange={handleChange} value={budgetAmount} required />
+                                <input type="number" name="amount" placeholder="Enter Amount" onChange={handleChange} value={budgetAmount} required min="0"/>
                             </label>
                             <button onClick={handleSubmit} type="submit">Submit Budget</button>
                         </form>

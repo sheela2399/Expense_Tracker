@@ -18,6 +18,11 @@ function AddExpense({handleExpense}) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        if (!expenseName || !expenseAmount || !date || !category) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
         const newExpense = {
             name: expenseName,
             amount: parseFloat(expenseAmount) || 0,
@@ -37,6 +42,8 @@ function AddExpense({handleExpense}) {
         setDate("");
         setCategory("");
     };
+
+    const todayDate = new Date().toISOString().split("T")[0]; 
 
     return (
         <>
@@ -69,6 +76,7 @@ function AddExpense({handleExpense}) {
                                 <input
                                     type="date"
                                     value={date}
+                                    max={todayDate}
                                     onChange={(e) => setDate(e.target.value)}
                                     required
                                 />
@@ -95,8 +103,8 @@ function AddExpense({handleExpense}) {
                                     placeholder="Enter Amount"
                                     value={expenseAmount}
                                     onChange={(e) => setExpenseAmount(e.target.value)}
-                                    required
-                                />
+                                    required  
+                                    min="0" />
                             </label>
                             <button type="submit" className="submit-button" onClick={handleSubmit}>
                                 Add Expense

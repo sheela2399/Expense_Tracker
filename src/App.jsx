@@ -56,10 +56,10 @@ function App() {
         <BudgetCard name={"Remaining buget"} amount={budget - totalExpense} img={coin} />
       </div >
       <div className='Filter-section'>
-        <Buttons handleBudget={handleBudget} 
-        handleExpense={handleExpenseAmount}
-         setSelectedCategory={setSelectedCategory} 
-         setSearchValue={setSearchValue}
+        <Buttons handleBudget={handleBudget}
+          handleExpense={handleExpenseAmount}
+          setSelectedCategory={setSelectedCategory}
+          setSearchValue={setSearchValue}
         />
       </div>
 
