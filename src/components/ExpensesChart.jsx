@@ -40,9 +40,9 @@ function ExpensesChart({ expensedata }) {
   };
 
   return (
-    <div>
+    <div className="graph-inner-div" style={{ width: "100%", height: "100%" }}>
       <h3>Expenses Chart</h3>
-      <Pie data={chartData} />
+      <Pie data={chartData} options={{ maintainAspectRatio: false }}/>
     </div>
   );
 }

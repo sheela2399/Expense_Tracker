@@ -41,7 +41,7 @@ function ExpensesTable({ expense, handleDelete,setExpense }) {
     if (deleteIndex !== null) {
       handleDelete(deleteIndex);
       alert("Expense deleted!");
-      // closeDeletePopup();
+      closeDeletePopup();
       setDeleteIndex(null);
     }
   };

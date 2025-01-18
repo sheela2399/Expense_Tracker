@@ -41,9 +41,9 @@ function ExpensesGraph({ expensedata }) {
   };
 
   return (
-    <div>
+    <div className='graph-inner-div' style={{ width: "100%", height: "100%" }}>
       <h3>Expenses graph</h3>
-      <Bar data={graphData} />
+      <Bar data={graphData} options={{ maintainAspectRatio: false }} />
     </div>
   );
 }
