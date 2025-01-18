@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 function AddBudget({handleBudget}) {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [budgetAmount, setBudgetAmount] = useState(0);
+    const [budgetAmount, setBudgetAmount] = useState();
 
     const handleChange = (event) => {
         setBudgetAmount(event.target.value);
@@ -19,6 +19,7 @@ function AddBudget({handleBudget}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         handleBudget(budgetAmount)
+        toast.success("Added Budget Succesfully")
         setBudgetAmount("");
         closePopup()
     }

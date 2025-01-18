@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 function AddExpense({handleExpense}) {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -32,6 +33,7 @@ function AddExpense({handleExpense}) {
 
         handleExpense(newExpense);
         // Pass the new expense back to the parent component
+        toast.success("Added Expense Succesfully")
         clearForm();
         closePopup();
     };

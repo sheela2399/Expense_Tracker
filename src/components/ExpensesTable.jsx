@@ -40,7 +40,6 @@ function ExpensesTable({ expense, handleDelete,setExpense }) {
   const confirmDelete = () => {
     if (deleteIndex !== null) {
       handleDelete(deleteIndex);
-      alert("Expense deleted!");
       closeDeletePopup();
       setDeleteIndex(null);
     }

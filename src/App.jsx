@@ -10,6 +10,7 @@ import ExpensesGraph from './components/ExpensesGraph'
 import ExpenseChart from './components/ExpensesChart'
 import ExpensesTable from './components/ExpensesTable'
 import Footer from './components/Footer'
+import { ToastContainer, toast } from 'react-toastify';
 
 function App() {
   const [budget, setBudget] = useState(0);
@@ -39,6 +40,7 @@ function App() {
 
   const handleDelete = (index) => {
     setExpense((prevExpenses) => prevExpenses.filter((_, i) => i !== index));
+    toast.success("Budget Deleted")
     // setIsDeleting(false);
     // setDeletingExpenseIndex(null);
   };
@@ -47,6 +49,7 @@ function App() {
 
   return (
     <>
+    <ToastContainer/>
       <div className='Navbar'>
         <Navbar />
       </div>

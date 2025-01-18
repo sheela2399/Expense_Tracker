@@ -15,6 +15,8 @@ function EditExpense({ expenseToEdit, handleEdit, handleCancel }) {
       category: editedCategory,
     };
     handleEdit(updatedExpense); // Call the parent component's edit handler
+    toast.success("Expense Edited")
+
   };
 
   return (
