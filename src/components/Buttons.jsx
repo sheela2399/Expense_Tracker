@@ -9,11 +9,12 @@ import AddBudget from "./AddBudget";
 import AddExpense from "./AddExpense";
 
 
-function Buttons({ handleBudget, handleExpense, setSelectedCategory }) {
-    const [searchValue, setSearchValue] = useState("");
+function Buttons({ handleBudget, handleExpense, setSelectedCategory, setSearchValue  }) {
+    // const [searchValue, setSearchValue] = useState("");
+
     const handleSearchChange = (e) => {
-        setSearchValue(e.target.value);
-    }
+        setSearchValue(e.target.value); 
+      };
 
     const handleFilterClick = (category) => {
         setSelectedCategory(category);
@@ -26,7 +27,7 @@ function Buttons({ handleBudget, handleExpense, setSelectedCategory }) {
                         <IoSearchOutline className="search-icon" />
                         <input type="text"
                             placeholder="search"
-                            value={searchValue}
+                            // value={searchValue}
                             onChange={handleSearchChange}
                         />
                     </div>

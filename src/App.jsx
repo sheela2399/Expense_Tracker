@@ -15,6 +15,7 @@ function App() {
   const [budget, setBudget] = useState(0);
   const [expense, setExpense] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchValue, setSearchValue] = useState("");
 
   const handleBudget = (newBudget) => {
     setBudget(newBudget);
@@ -29,17 +30,17 @@ function App() {
     0
   );
 
-  const filteredExpenses = selectedCategory === "All"
-    ? expense
-    : expense.filter((exp) => exp.category === selectedCategory);
-
-  // console.log("Expenses:", expense);
-  // console.log("Filtered Expenses:", filteredExpenses);
+  const filteredExpenses = expense.filter((exp) => {
+    // Match category and search value
+    const matchesCategory = selectedCategory === "All" || exp.category === selectedCategory;
+    const matchesSearch = exp.name.toLowerCase().includes(searchValue.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   const handleDelete = (index) => {
     setExpense((prevExpenses) => prevExpenses.filter((_, i) => i !== index));
-    setIsDeleting(false);
-    setDeletingExpenseIndex(null);
+    // setIsDeleting(false);
+    // setDeletingExpenseIndex(null);
   };
 
   // const remainingBudget = budget - totalExpense;
@@ -55,7 +56,10 @@ function App() {
         <BudgetCard name={"Remaining buget"} amount={budget - totalExpense} img={coin} />
       </div >
       <div className='Filter-section'>
-        <Buttons handleBudget={handleBudget} handleExpense={handleExpenseAmount} setSelectedCategory={setSelectedCategory}
+        <Buttons handleBudget={handleBudget} 
+        handleExpense={handleExpenseAmount}
+         setSelectedCategory={setSelectedCategory} 
+         setSearchValue={setSearchValue}
         />
       </div>
 
