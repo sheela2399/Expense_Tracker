@@ -157,6 +157,12 @@
   height: 20px;
 }
 
+.category-btn.selected {
+  background-color: #0056b3;
+  color: white;
+  border: 1px solid #0056b3;
+}
+
 /* Action Buttons */
 .action-buttons {
   display: flex;

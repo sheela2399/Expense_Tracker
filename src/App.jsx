@@ -67,7 +67,7 @@ function App() {
       </div>
 
       {/* Conditional Rendering for Charts, Graphs, and Table */}
-      {expense.length > 0 ? (
+      {filteredExpenses.length > 0 ? (
         <>
           <div className="graphs-container">
             <div className="graph-item">
