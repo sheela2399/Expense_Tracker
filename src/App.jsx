@@ -11,6 +11,7 @@ import ExpenseChart from './components/ExpensesChart'
 import ExpensesTable from './components/ExpensesTable'
 import Footer from './components/Footer'
 import { ToastContainer, toast } from 'react-toastify';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [budget, setBudget] = useState(0);
@@ -23,7 +24,7 @@ function App() {
   };
 
   const handleExpenseAmount = (newExpense) => {
-    setExpense((prevExpenses) => [...prevExpenses, newExpense]);
+    setExpense((prevExpenses) => [...prevExpenses, { id: uuidv4(), ...newExpense },]);
   };
 
   const totalExpense = expense.reduce(
@@ -38,8 +39,8 @@ function App() {
     return matchesCategory && matchesSearch;
   });
 
-  const handleDelete = (index) => {
-    setExpense((prevExpenses) => prevExpenses.filter((_, i) => i !== index));
+  const handleDelete = (id) => {
+    setExpense((prevExpenses) => prevExpenses.filter((exp) => exp.id !== id));
     toast.success("Budget Deleted")
     // setIsDeleting(false);
     // setDeletingExpenseIndex(null);

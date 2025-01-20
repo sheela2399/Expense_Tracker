@@ -5,7 +5,8 @@ import trash from "../assets/trash.svg"
 import EditExpense from "./EditExpense";
 
 function ExpensesTable({ expense, handleDelete,setExpense }) {
-  const [deleteIndex, setDeleteIndex] = useState(null);
+  // const [deleteIndex, setDeleteIndex] = useState(null);
+  const [deleteId, setDeleteId] = useState(null);
   const [editIndex, setEditIndex] = useState(null); 
   const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
 
@@ -28,19 +29,19 @@ function ExpensesTable({ expense, handleDelete,setExpense }) {
     closeEditPopup();
   };
   
-  const openDeletePopup = (index) => {
-    setDeleteIndex(index);
+  const openDeletePopup = (id) => {
+    setDeleteId(id);
   };
 
   const closeDeletePopup = () => {
-    setDeleteIndex(null);
+    setDeleteId(null);
   };
 
   const confirmDelete = () => {
-    if (deleteIndex !== null) {
-      handleDelete(deleteIndex);
+    if (deleteId !== null) {
+      handleDelete(deleteId);
       closeDeletePopup();
-      setDeleteIndex(null);
+      // setDeleteId(null);
     }
   };
 
@@ -57,13 +58,13 @@ function ExpensesTable({ expense, handleDelete,setExpense }) {
         </thead>
         <tbody>
           {expense.map((exp, index) => (
-            <tr key={index}>
+            <tr key={exp.id}>
               <td>{index + 1}</td>
               <td>{exp.name}</td>
               <td>{exp.amount}</td>
               <td className="action-div">
                 <button className="edit-button" onClick={() => openEditPopup(index)}> <img src={edit} alt="" /> Edit</button>
-                <button className="delete-button" onClick={() => openDeletePopup(index)}> <img src={trash} alt="" />Delete</button>
+                <button className="delete-button" onClick={() => openDeletePopup(exp.id)}> <img src={trash} alt="" />Delete</button>
               </td>
             </tr>
           ))}
@@ -78,7 +79,7 @@ function ExpensesTable({ expense, handleDelete,setExpense }) {
         />
       )}
 
-      {deleteIndex !== null && (
+      {deleteId !== null && (
         <DeleteExpense
           handleDelete={confirmDelete}
           handleCancel={closeDeletePopup}
