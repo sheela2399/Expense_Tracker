@@ -6,7 +6,7 @@ import EditExpense from "./EditExpense";
 
 function ExpensesTable({ expense, handleDelete,setExpense }) {
   const [deleteIndex, setDeleteIndex] = useState(null);
-  const [editIndex, setEditIndex] = useState(null); // Track which expense to edit
+  const [editIndex, setEditIndex] = useState(null); 
   const [isEditPopupOpen, setIsEditPopupOpen] = useState(false);
 
   const openEditPopup = (index) => {
@@ -28,7 +28,6 @@ function ExpensesTable({ expense, handleDelete,setExpense }) {
     closeEditPopup();
   };
   
-
   const openDeletePopup = (index) => {
     setDeleteIndex(index);
   };
@@ -44,7 +43,6 @@ function ExpensesTable({ expense, handleDelete,setExpense }) {
       setDeleteIndex(null);
     }
   };
-
 
   return (
     <>

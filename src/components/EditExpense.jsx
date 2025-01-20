@@ -19,6 +19,8 @@ function EditExpense({ expenseToEdit, handleEdit, handleCancel }) {
 
   };
 
+  const todayDate = new Date().toISOString().split("T")[0]; 
+
   return (
     <>
       <div className="popup">
@@ -44,6 +46,7 @@ function EditExpense({ expenseToEdit, handleEdit, handleCancel }) {
               Date:
               <input
                 type="date"
+                max={todayDate}
                 value={editedDate}
                 onChange={(e) => setEditedDate(e.target.value)}
                 required
@@ -72,7 +75,7 @@ function EditExpense({ expenseToEdit, handleEdit, handleCancel }) {
                 value={editedExpenseAmount}
                 onChange={(e) => setEditedExpenseAmount(e.target.value)}
                 required
-              />
+                min="0"/>
             </label>
             <div className="popup-edit-buttons">
               <button type="submit" className="submit-button">

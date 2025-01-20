@@ -19,9 +19,9 @@ function AddBudget({handleBudget}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         handleBudget(budgetAmount)
+        closePopup();
         toast.success("Added Budget Succesfully")
         setBudgetAmount("");
-        closePopup()
     }
 
     return (

@@ -3,9 +3,6 @@
 @tailwind utilities; */
 
 @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&display=swap');
-/* @import 'chart.js/dist/Chart.css'; */
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+VN:wght@100..400&display=swap');
-
 
 * {
   margin: 0px;
@@ -83,7 +80,7 @@
 .filters {
   margin: 30px;
   padding: 20px;
-  background: #f9f9f9;
+  /* background: #f9f9f9; */
   border-radius: 10px;
   /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
   display: flex;
@@ -178,7 +175,6 @@
   border-radius: 30px;
   cursor: pointer;
   font-size: 16px;
-  
 }
 
 .action-buttons button:hover {
@@ -186,7 +182,6 @@
 }
 
 /* Addbudget part start */
-
 .add-budget-button {
   padding: 10px 20px;
   background-color: #007bff;
@@ -284,8 +279,7 @@
 
 .table-container {
   margin: 20px auto;
-  width: 90%;
-  max-width: 800px;
+  width: 80%;
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -298,16 +292,16 @@
   border-collapse: collapse;
 }
 
+.table-container th{
+  background-color: #f4f4f4;
+}
+
 .table-container th,
 .table-container td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
   text-align: center;
   font-size: 16px;
-}
-
-.table-container th {
-  background-color: #f4f4f4;
 }
 
 .table-container tr:hover {
@@ -436,9 +430,7 @@ animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in animation */
   max-width: 500px; 
   min-height: 300px; 
   max-height: 550px;
-  background: #f9f9f9;
   padding: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   display: flex; /* Ensure child fills the parent */
   align-items: center;
   justify-content: center;

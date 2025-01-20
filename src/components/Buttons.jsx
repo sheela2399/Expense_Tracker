@@ -8,20 +8,19 @@ import { IoSearchOutline } from "react-icons/io5";
 import AddBudget from "./AddBudget";
 import AddExpense from "./AddExpense";
 
-
-function Buttons({ handleBudget, handleExpense, setSelectedCategory, setSearchValue  }) {
+function Buttons({ handleBudget, handleExpense, setSelectedCategory, setSearchValue }) {
     // const [searchValue, setSearchValue] = useState("");
     const [activeCategory, setActiveCategory] = useState("All");
 
-
     const handleSearchChange = (e) => {
-        setSearchValue(e.target.value); 
-      };
+        setSearchValue(e.target.value);
+    };
 
     const handleFilterClick = (category) => {
         setSelectedCategory(category);
         setActiveCategory(category);
     }
+
     return (
         <>
             <div className="filters">
@@ -36,28 +35,27 @@ function Buttons({ handleBudget, handleExpense, setSelectedCategory, setSearchVa
                     </div>
                     <div className="category-buttons">
                         <button className={`category-btn ${activeCategory === "All" ? "selected" : ""}`}
- 
-                        onClick={() => handleFilterClick("All")}>
+                            onClick={() => handleFilterClick("All")}>
                             <img src={expenses} alt="expenses" className="category-icon" /> All Expenses
                         </button>
 
                         <button className={`category-btn ${activeCategory === "Food" ? "selected" : ""}`}
-                        onClick={() => handleFilterClick("Food")}>
+                            onClick={() => handleFilterClick("Food")}>
                             <img src={food} alt="food" className="category-icon" /> Food & Drinks
                         </button>
 
                         <button className={`category-btn ${activeCategory === "Groceries" ? "selected" : ""}`}
-                        onClick={() => handleFilterClick("Groceries")}>
+                            onClick={() => handleFilterClick("Groceries")}>
                             <img src={groceries} alt="groceries" className="category-icon" /> Groceries
                         </button>
 
                         <button className={`category-btn ${activeCategory === "Travel" ? "selected" : ""}`}
-                        onClick={() => handleFilterClick("Travel")}>
+                            onClick={() => handleFilterClick("Travel")}>
                             <img src={travel} alt="travel-icon" className="category-icon" /> Travel
                         </button>
 
                         <button className={`category-btn ${activeCategory === "Health" ? "selected" : ""}`}
-                        onClick={() => handleFilterClick("Health")}>
+                            onClick={() => handleFilterClick("Health")}>
                             <img src={health} alt="health-icon" className="category-icon" /> Health
                         </button>
                     </div>
