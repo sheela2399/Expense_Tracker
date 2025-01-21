@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 # Expense_Tracker
 A simple, intuitive, and responsive expense tracker to manage your personal finances effectively. Track your income, expenses, and savings with ease.
 
@@ -12,6 +11,3 @@ Data Persistence: All transactions are stored locally or in the cloud (based on 
 
 #Tech Stack
 HTML, CSS, JavaScript, React.js .
-=======
- 
->>>>>>> Stashed changes
