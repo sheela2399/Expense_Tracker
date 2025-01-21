@@ -41,7 +41,7 @@ function App() {
 
   const handleDelete = (id) => {
     setExpense((prevExpenses) => prevExpenses.filter((exp) => exp.id !== id));
-    toast.success("Budget Deleted")
+    toast.error("Budget Deleted")
     // setIsDeleting(false);
     // setDeletingExpenseIndex(null);
   };

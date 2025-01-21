@@ -20,7 +20,7 @@ function AddExpense({handleExpense}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (!expenseName || !expenseAmount || !date || !category) {
-            alert("Please fill in all fields.");
+            toast.warning("Please fill in all fields.")
             return;
         }
 
